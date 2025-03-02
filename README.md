@@ -1,8 +1,6 @@
 <div align="center">
 <h1>JenkinsGuild</h1>
-
 <p> 🧰 Jenkins全知全解。</p>
-
 <img src="https://cdn.jsdelivr.net/gh/eryajf/tu@main/img/image_20240420_214408.gif" width="800"  height="3">
 
 </div>
@@ -15,10 +13,10 @@
 <p align="center">
 <img align="left" height="110" src="./docs/public/logo.png">
 <ul>
-<li><strong>官方地址</strong>: https://www.jenkins.io/</li>
+<li><strong>我的博客</strong>: https://wiki.eryajf.net</li>
+<li><strong>官方地址</strong>: https://www.jenkins.io</li>
 <li><strong>访问指南</strong>: https://jenkinsguide.opsre.top</li>
 <li><strong>欢迎沟通</strong>: https://github.com/opsre/JenkinsGuide/issues</li>
-<li><strong>我的博客</strong>: https://wiki.eryajf.net</li>
 </ul>
 </p>
 
