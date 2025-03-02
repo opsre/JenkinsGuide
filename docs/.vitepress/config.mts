@@ -4,6 +4,7 @@ import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
+import { pagefindPlugin } from 'vitepress-plugin-pagefind'  // 搜索插件
 
 export default (defineConfig({
   lang: 'zh-CN',
@@ -81,6 +82,26 @@ export default (defineConfig({
           js: 'logos:javascript', //js图标
         },
       }),
+      pagefindPlugin(
+        {
+          locales: {
+            root: {
+              btnPlaceholder: 'Search',
+              placeholder: 'Search Docs...',
+              emptyText: 'No results',
+              heading: 'Total: {{searchResult}} search results.',
+            },
+            zh: {
+              btnPlaceholder: '搜索',
+              placeholder: '搜索文档',
+              emptyText: '空空如也',
+              heading: '共: {{searchResult}} 条结果',
+              // 搜索结果不展示最后修改日期日期
+              showDate: false
+            }
+          }
+        }
+      ),
       [MermaidPlugin()]
     ],
     optimizeDeps: {
@@ -162,6 +183,7 @@ export default (defineConfig({
         collapsed: false,
         items: [
           { text: 'Markdown', link: '/keep/markdown' },
+          { text: 'VitePress', link: '/keep/vitepress' },
         ],
       },
     ],
