@@ -1,6 +1,6 @@
 <div align="center">
 <h1>JenkinsGuild</h1>
-<p> 🧰 Jenkins全知全解。</p>
+<p> 🧰 Jenkins全知全解 🧘</p>
 
 <img src="https://cdn.jsdelivr.net/gh/eryajf/tu@main/img/image_20240420_214408.gif" width="100%"  height="3">
 </div>
