@@ -5,6 +5,7 @@ import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { pagefindPlugin } from 'vitepress-plugin-pagefind'  // 搜索插件
+import { withMermaid } from "vitepress-plugin-mermaid"; // 流程图插件
 
 export default (defineConfig({
   lang: 'zh-CN',
@@ -36,6 +37,8 @@ export default (defineConfig({
       link: '/en/',
     }
   },
+
+
 
   //markdown配置
   markdown: {
@@ -72,6 +75,13 @@ export default (defineConfig({
 
   },
 
+  mermaid: {
+    // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
+  },
+  mermaidPlugin: {
+    class: "mermaid my-class", // set additional css classes for parent container
+  },
+
   vite: {
     plugins: [
       groupIconVitePlugin({
@@ -102,7 +112,7 @@ export default (defineConfig({
           }
         }
       ),
-      [MermaidPlugin()]
+      [MermaidPlugin()],
     ],
     optimizeDeps: {
       include: ['mermaid'],

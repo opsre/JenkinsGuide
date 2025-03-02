@@ -27,3 +27,44 @@
 [![HitCount](https://views.whatilearened.today/views/github/opsre/JenkinsGuide.svg)](https://github.com/opsre/JenkinsGuide)
 [![GitHub license](https://img.shields.io/github/license/opsre/JenkinsGuide)](https://github.com/opsre/JenkinsGuide/blob/main/LICENSE)
 [![](https://img.shields.io/badge/Awesome-MyStarList-c780fa?logo=Awesome-Lists)](https://github.com/eryajf/awesome-stars-eryajf#readme)
+
+
+<div align="center">
+
+```mermaid
+mindmap
+  root((JenkinsGuide))
+    基础内容
+      Jenkins 的历史及发展
+      持续集成的概念简述
+      Jenkins 的几种安装方式
+      Jenkins根目录与内置变量概述
+    自由风格，自由构建
+      认识自由风格
+      使用自由风格构建Java和Go编译类项目
+      使用自由风格构建Vue和PHP静态文件发布项目
+      使用自由风格构建安卓APP
+    Pipeline
+      认识Pipeline
+      Pipeline语法观止
+      基于pipeline简单构建一个项目
+      pipeline结合ansible进行批量发布
+    共享库
+    	认识共享库
+    	学习一些简单的groovy语法
+    	基于共享库的最佳实践
+    特别章节:企业私服Nexus
+    	介绍及安装
+    	配置各语言私服
+    	各语言实践
+    特别章节:最佳实践深度解析
+    	回滚的最佳实践
+    	优秀插件，如虎添翼
+    	分布式，slave的实践
+    特别章节:权限管理
+    	Jenkins配置openldap认证
+    	基于Role插件控制权限的实践
+    	结合openldap分组的权限分配
+    	基于MySQL的权限控制思路
+```
+</div>
