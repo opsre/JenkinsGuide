@@ -167,7 +167,7 @@ server {
 - 安装 jdk
 
 ```sh
-$ yum -y install epel-release
+$ yum -y install epel-release fontconfig
 $ yum -y install java-1.8.0-openjdk.x86_64
 $ java -version
 ```
