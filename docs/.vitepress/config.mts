@@ -161,6 +161,7 @@ export default (defineConfig({
             items: [
               { text: 'Jenkins的几种安装方式', link: '/basicContent/how-to-install' },
               { text: 'Jenkins根目录与内置变量概述', link: '/basicContent/overview-of-root-directory-and-internal-variables' },
+              { text: 'Jenkins插件管理', link: '/basicContent/plugin-manager' },
             ],
           },
         ],
@@ -185,6 +186,7 @@ export default (defineConfig({
         items: [
           { text: 'Jenkins的几种安装方式', link: '/basicContent/how-to-install' },
           { text: 'Jenkins根目录与内置变量概述', link: '/basicContent/overview-of-root-directory-and-internal-variables' },
+          { text: 'Jenkins插件管理', link: '/basicContent/plugin-manager' },
         ],
       },
       {
