@@ -42,6 +42,4 @@ features:
 
 ---
 
-<div align="center">
 ![](https://pic2.58cdn.com.cn/nowater/im/n_v35d9d0a447a854805a70aecffe3b3e1b7.png)
-</div>
