@@ -7,6 +7,7 @@ main:
           settings:
             target_url: https://github.com/opsre/JenkinsGuide.git
             auth_type: https
+            git_email: 'github-actions[bot]@users.noreply.github.com'
             username: ${GIT_USERNAME}
             password: ${GIT_ACCESS_TOKEN}
             branch: main
