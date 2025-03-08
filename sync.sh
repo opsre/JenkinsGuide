@@ -8,3 +8,8 @@ make build
 # 同步
 rsync -az -e 'ssh -p 2023' --delete docs/.vitepress/dist/  \
     root@prod.eryajf.net:/data/www/JenkinsGuide/
+
+sleep 5
+
+# 刷新
+doge flush path -p "https://jenkinsguide.opsre.top/"

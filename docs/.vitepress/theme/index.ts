@@ -102,8 +102,8 @@ export default {
     giscusTalk({
       repo: 'opsre/JenkinsGuide', //仓库
       repoId: 'R_kgDON4RvxA', //仓库ID
-      category: 'Announcements', // 讨论分类
-      categoryId: 'DIC_kwDON4RvxM4CnUkg', //讨论分类ID
+      category: 'General', // 讨论分类
+      categoryId: 'DIC_kwDOGYFl1M4CayLN', //讨论分类ID
       mapping: 'pathname',
       inputPosition: 'bottom',
       lang: 'zh-CN',
