@@ -61,6 +61,8 @@ export default (defineConfig({
     //行号显示
     lineNumbers: true,
 
+    toc: { level: [2,6] },
+
     // 使用 `!!code` 防止转换
     codeTransformers: [
       {
@@ -180,6 +182,21 @@ export default (defineConfig({
               { text: 'Jenkins插件管理', link: '/basicContent/plugin-manager' },
             ],
           },
+          {
+            //分组标题1
+            text: '自由风格',
+            items: [
+              { text: '认识自由风格', link: '/freestyle/get-to-know-the-free-style' },
+            ],
+          },
+          {
+            //分组标题1
+            text: 'pipeline',
+            items: [
+              { text: '认识pipeline', link: '/pipeline/get-to-know-the-pipeline' },
+              { text: 'pipeline语法观止', link: '/pipeline/pipeline-syntax-compendium' },
+            ],
+          },
         ],
       },
       { text: '📝 我的博客', link: 'https://wiki.eryajf.net' },
@@ -206,9 +223,26 @@ export default (defineConfig({
         ],
       },
       {
+        //分组标题1
+        text: '自由风格',
+        collapsed: false,
+        items: [
+          { text: '认识自由风格', link: '/freestyle/get-to-know-the-free-style' },
+        ],
+      },
+      {
+        //分组标题1
+        text: 'pipeline',
+        collapsed: false,
+        items: [
+          { text: '认识pipeline', link: '/pipeline/get-to-know-the-pipeline' },
+          { text: 'pipeline语法观止', link: '/pipeline/pipeline-syntax-compendium' },
+        ],
+      },
+      {
         //分组标题3
         text: '保留文档',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Markdown', link: '/keep/markdown' },
           { text: 'VitePress', link: '/keep/vitepress' },
