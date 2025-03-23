@@ -61,7 +61,7 @@ export default (defineConfig({
     //行号显示
     lineNumbers: true,
 
-    toc: { level: [2,6] },
+    toc: { level: [2,3,4,5,6] },
 
     // 使用 `!!code` 防止转换
     codeTransformers: [
