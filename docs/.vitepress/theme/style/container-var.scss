@@ -1,0 +1,70 @@
+// vitepress-container-hyde 容器样式亮色主题变量
+// 亮色主题变量
+:root {
+  // 信息区块
+  --custom-block-info-bg: #fafafa;
+  --custom-block-info-border: #cccccc;
+
+  // 提示区块
+  --custom-block-tip-bg: #e6f6e6;
+  --custom-block-tip-border: #009400;
+
+  // 警告区块
+  --custom-block-warning-bg: #fff8e6;
+  --custom-block-warning-border: #e6a700;
+
+  // 危险区块
+  --custom-block-danger-bg: #ffebec;
+  --custom-block-danger-border: #e13238;
+
+  // 笔记区块
+  --custom-block-note-bg: #eef9fd;
+  --custom-block-note-border: #90e0ff;
+
+  // 重要区块
+  --custom-block-important-bg: #f4eefe;
+  --custom-block-important-border: #a371f7;
+
+  // 注意区块
+  --custom-block-caution-bg: #fde4e8;
+  --custom-block-caution-border: #e0575b;
+
+  // 详情区块
+  --custom-block-details-bg: #f0f6ff;
+  --custom-block-details-border: #5c6bc0;
+}
+
+// 暗色主题变量
+.dark {
+  // 信息区块
+  --custom-block-info-bg: #474748;
+  --custom-block-info-border: #cccccc;
+
+  // 提示区块
+  --custom-block-tip-bg: #003100;
+  --custom-block-tip-border: #009400;
+
+  // 警告区块
+  --custom-block-warning-bg: #4d3800;
+  --custom-block-warning-border: #e6a700;
+
+  // 危险区块
+  --custom-block-danger-bg: #4b1113;
+  --custom-block-danger-border: #e13238;
+
+  // 笔记区块
+  --custom-block-note-bg: #193c47;
+  --custom-block-note-border: #4cb3d4;
+
+  // 重要区块
+  --custom-block-important-bg: #230555;
+  --custom-block-important-border: #a371f7;
+
+  // 注意区块
+  --custom-block-caution-bg: #391c22;
+  --custom-block-caution-border: #e0575b;
+
+  // 详情区块
+  --custom-block-details-bg: #65758529;
+  --custom-block-details-border: #5c6bc0;
+}

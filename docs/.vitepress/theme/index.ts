@@ -1,122 +1,151 @@
-import DefaultTheme from 'vitepress/theme'
+import Teek, {
+  artalkSymbol,
+  giscusSymbol,
+  walineSymbol,
+} from "vitepress-theme-teek";
+import "vitepress-theme-teek/index.css";
 
-// giscusTalk
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-// 进度条
-import { NProgress } from 'nprogress-v2/dist/index.js'
-// 样式
-import 'nprogress-v2/dist/index.css'
-import 'virtual:group-icons.css' //代码组样式
-import './style/index.css' //自定义样式
+// import NoticeContent from "./components/NoticeContent.vue";
+// // import notice from "./components/notice.vue";
+// import BannerImgArrow from "./components/BannerImgArrow.vue";
 
-import { h } from 'vue' // h函数
-import { useData , useRoute } from 'vitepress'
-// mediumZoom
-import mediumZoom from 'medium-zoom';
-import { onMounted, watch, nextTick } from 'vue';
+import { defineComponent, h, nextTick, provide, watch } from "vue";
+import { useData, useRoute } from "vitepress";
+// import "vitepress-theme-teek/index.css";
+import "vitepress-theme-teek/vp-plus/code-block-mobile.scss"; // 移动端代码块样式加 padding
+import "vitepress-theme-teek/vp-plus/sidebar.scss"; // 侧边栏字体样式
+import "vitepress-theme-teek/vp-plus/nav.scss"; // 导航栏样式
+import "vitepress-theme-teek/vp-plus/nav-blur.scss"; // 导航栏毛玻璃样式
+import "vitepress-theme-teek/vp-plus/aside.scss"; // 文章目录样式
+import "vitepress-theme-teek/vp-plus/doc-h1-gradient.scss"; // 文档以及标题样式
+import "vitepress-theme-teek/vp-plus/mark.scss"; // 文章 mark 标签样式
+import "vitepress-theme-teek/vp-plus/container.scss"; // Markdown 容器样式
+// import "vitepress-theme-teek/vp-plus/container-left.scss"; // Markdown 容器左框样式
+// import "vitepress-theme-teek/vp-plus/container-flow.scss"; // Markdown 容器流体样式
+// import "vitepress-theme-teek/vp-plus/blockquote.scss"; // 引用样式
+import "vitepress-theme-teek/vp-plus/index-rainbow.scss"; // Vitepress 首页彩虹渐变样式
+import "vitepress-theme-teek/tk-plus/banner-desc-gradient.scss"; // Banner 描述渐变样式
+import "vitepress-theme-teek/tk-plus/banner-full-img-scale.scss"; // Banner 全屏图片放大样式
 
+import "./styles/index.scss"; //群主自定义的全局样式
 
-// 组件
-import MNavLinks from './components/MNavLinks.vue' //导航
-import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
-import update from "./components/update.vue" // 更新时间
-import xgplayer from "./components/xgplayer.vue" //西瓜播放器
-import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
-import Linkcard from "./components/Linkcard.vue" //链接卡片
-import MyLayout from "./components/MyLayout.vue" //视图过渡
-import backtotop from "./components/backtotop.vue" //返回顶部
-import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
+import { useFooterRuntime } from "./helper/useFooterRuntime"; // 首页底部添加运行时间
 
-// 不蒜子
-import { inBrowser } from 'vitepress'
-import busuanzi from 'busuanzi.pure.js'
-import bsz from "./components/bsz.vue"
+import "./style/index.scss"; // 引入Demo\docs-base\.vitepress\theme\style\index.scss全局样式
+import "virtual:group-icons.css"; //代码组图标样式
+import googleAnalytics from "vitepress-plugin-google-analytics"; // 引入谷歌统计插件
+// import MNavLinks from "./components/MNavLinks.vue"; // 引入导航组件
 
+// import Layout from "./components/MyLayout.vue";
+import DefaultTheme from "vitepress/theme";
+// import confetti from "./components/Confetti.vue"; //导入五彩纸屑组件
+import "vitepress-markdown-timeline/dist/theme/index.css"; // 引入时间线样式
+
+// 评论组件
+// import { init } from "@waline/client";
+// import "@waline/client/style";
+import Giscus from "@giscus/vue";
+// import "artalk/Artalk.css";
+// import Artalk from "artalk";
 
 export default {
-  extends: DefaultTheme,
+  extends: Teek,
+  // enhanceApp({ app }) {
+  //   // 注册组件
+  //   app.component("MNavLinks", MNavLinks), //导航组件
+  //     app.component("confetti", confetti); //五彩纸屑
+  // },
+  Layout: defineComponent({
+    name: "LayoutProvider",
+    setup() {
+      const { frontmatter, isDark, page } = useData();
+      const { start, stop } = useFooterRuntime();
+      const props: Record<string, any> = {};
 
-  enhanceApp({app , router }) {
-    // 注册全局组件
-    app.component('MNavLinks' , MNavLinks) //导航
-    app.component('HomeUnderline' , HomeUnderline) // 首页下划线
-    app.component('update' , update) // 更新
-    app.component('xgplayer' , xgplayer) //西瓜播放器
-    app.component('ArticleMetadata' , ArticleMetadata) //字数阅读时间
-    app.component('Linkcard' , Linkcard) //链接卡片
-    app.component('fluidborder' , fluidborder) //流体边框仅用于演示
-
-    // 不蒜子
-    if (inBrowser) {
-      NProgress.configure({ showSpinner: false })
-      router.onBeforeRouteChange = () => {
-        NProgress.start() // 开始进度条
+      // 添加自定义 class 逻辑
+      if (frontmatter.value?.layoutClass) {
+        props.class = frontmatter.value.layoutClass;
       }
-      router.onAfterRouteChange = () => {
-         busuanzi.fetch()
-         NProgress.done() // 停止进度条
-       }
-    }
+      const route = useRoute();
 
-  },
+      // 注入评论区实例
+      // provide(walineSymbol, (options, el) =>
+      //   init({ serverURL: options.serverURL!, dark: options.dark, el })
+      // );
+      provide(giscusSymbol, () => Giscus);
+      // provide(artalkSymbol, (options, el) =>
+      //   Artalk.init({
+      //     el,
+      //     darkMode: isDark.value,
+      //     pageKey: route.path,
+      //     pageTitle: page.value.title,
+      //     server: options.server,
+      //     site: options.site,
+      //   })
+      // );
 
-  //导航
-  Layout: () => {
-    const props: Record<string, any> = {}
-    // 获取 frontmatter
-    const { frontmatter } = useData()
+      watch(
+        frontmatter,
+        () => {
+          nextTick(() => {
+            if (frontmatter.value.layout === "home") start();
+            else stop();
+          });
+        },
+        { immediate: true }
+      );
 
-    /* 添加自定义 class */
-    if (frontmatter.value?.layoutClass) {
-      props.class = frontmatter.value.layoutClass
-    }
+      return () =>
+        h(Teek.Layout, props, {
+          // "layout-top": () => h(notice), // 使用layout-top插槽
+          googleAnalytics: () =>
+            h(googleAnalytics, {
+              id: "G-YDTSLB09YH",
+            }), // 使用googleAnalytics插槽
+          // confetti: () => h(confetti), // 使用confetti插槽
+          // "teek-notice-content": () => h(NoticeContent),
+          // "teek-home-banner-feature-after": () => h(BannerImgArrow),
+          // "teek-home-before": () => h("div", null, "teek-home-before"),
+          // "teek-home-after": () => h("div", null, "teek-home-after"),
+          // "teek-home-banner-before": () => h("div", null, "teek-home-banner-before"),
+          // "teek-home-banner-after": () => h("div", null, "teek-home-banner-after"),
+          // "teek-home-banner-content-before": () => h("div", null, "teek-home-banner-content-before"),
+          // "teek-home-banner-content-after": () => h("div", null, "teek-home-banner-content-after"),
+          // "teek-home-banner-feature-after": () => h("div", null, "teek-home-banner-feature-after"),
+          // "teek-home-post-before": () => h("div", null, "teek-home-post-before"),
+          // "teek-home-post-after": () => h("div", null, "teek-home-post-after"),
+          // "teek-home-info-before": () => h("div", null, "teek-home-info-before"),
+          // "teek-home-info-after": () => h("div", null, "teek-home-info-after"),
+          // "teek-home-my-before": () => h("div", null, "teek-home-my-before"),
+          // "teek-home-my-after": () => h("div", null, "teek-home-my-after"),
+          // "teek-home-top-article-before": () => h("div", null, "teek-home-top-article-before"),
+          // "teek-home-top-article-after": () => h("div", null, "teek-home-top-article-after"),
+          // "teek-home-category-before": () => h("div", null, "teek-home-category-before"),
+          // "teek-home-category-after": () => h("div", null, "teek-home-category-after"),
+          // "teek-home-tag-before": () => h("div", null, "teek-home-tag-before"),
+          // "teek-home-tag-after": () => h("div", null, "teek-home-tag-after"),
+          // "teek-home-friend-link-before": () => h("div", null, "teek-home-friend-link-before"),
+          // "teek-home-friend-link-after": () => h("div", null, "teek-home-friend-link-after"),
+          // "teek-home-doc-analysis-before": () => h("div", null, "teek-home-doc-analysis-before"),
+          // "teek-home-doc-analysis-after": () => h("div", null, "teek-home-doc-analysis-after"),
+          // "teek-footer-before": () => h("div", null, "teek-footer-before"),
+          // "teek-footer-after": () => h("div", null, "teek-footer-after"),
 
-    // return h(DefaultTheme.Layout, props, {
-    //   'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
-    //   'doc-footer-before': () => h(backtotop), // 返回顶部doc-footer-before插槽
-    //   'layout-top': () => h(notice), // 公告layout-top插槽
-    // })
+          // "teek-article-analyze-before": () => h("div", null, "teek-article-analyze-before"),
+          // "teek-article-analyze-after": () => h("div", null, "teek-article-analyze-after"),
+          // "teek-comment-before": () => h("div", null, "teek-comment-before"),
+          // "teek-comment-after": () => h("div", null, "teek-comment-after"),
+          // "teek-page-top-before": () => h("div", null, "teek-page-top-before"),
+          // "teek-page-top-after": () => h("div", null, "teek-page-top-after"),
 
-    return h(MyLayout,props)
-  },
+          // "teek-archives-top-before": () => h("div", null, "teek-archives-top-before"),
+          // "teek-archives-top-after": () => h("div", null, "teek-archives-top-after"),
+          // "teek-catalogue-top-before": () => h("div", null, "teek-catalogue-top-before"),
+          // "teek-catalogue-top-after": () => h("div", null, "teek-catalogue-top-after"),
 
-  // medium-zoom
-  setup() {
-    const route = useRoute();
-    const initZoom = () => {
-      // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
-      mediumZoom('.main img', { background: 'var(--vp-c-bg)' }); // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
-    };
-    onMounted(() => {
-      initZoom();
-    });
-    watch(
-      () => route.path,
-      () => nextTick(() => initZoom())
-    );
-
-    // giscus
-    const { frontmatter } = useData();
-
-    // giscus配置
-    giscusTalk({
-      repo: 'opsre/JenkinsGuide', //仓库
-      repoId: 'R_kgDON4RvxA', //仓库ID
-      category: 'General', // 讨论分类
-      categoryId: 'DIC_kwDOGYFl1M4CayLN', //讨论分类ID
-      mapping: 'pathname',
-      inputPosition: 'bottom',
-      lang: 'zh-CN',
-      },
-      {
-        frontmatter, route
-      },
-      //默认值为true，表示已启用，此参数可以忽略；
-      //如果为false，则表示未启用
-      //您可以使用“comment:true”序言在页面上单独启用它
-      true
-    );
-
-  },
-
-}
+          // "teek-right-bottom-before": () => h("div", null, "teek-right-bottom-before"),
+          // "teek-right-bottom-after": () => h("div", null, "teek-right-bottom-after"),
+        });
+    },
+  }),
+};

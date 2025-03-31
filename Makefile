@@ -1,7 +1,7 @@
 default: run
 
 run:
-	pnpm docs:dev
+	pnpm dev
 
 build:
-	pnpm docs:build
+	pnpm build

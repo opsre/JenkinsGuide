@@ -1,0 +1,10 @@
+.vp-doc {
+  div[class*="language-"],
+  .vp-code-group {
+    box-shadow: var(--vp-shadow-5);
+  }
+
+  .vp-code-group div[class*="language-"] {
+    box-shadow: none;
+  }
+}

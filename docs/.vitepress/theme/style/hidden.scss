@@ -1,0 +1,39 @@
+/* .vitepress\theme\style\hidden.scss */
+// /* 隐藏横条 */
+// nav导航栏下菜单隐藏线
+.VPMenuGroup {
+  border-top: none !important;
+}
+
+.VPMenuLink {
+  border-top: none !important;
+}
+// 页头横条隐藏线
+.vp-doc h2 {
+  border-top: none;
+}
+
+// 页脚横条隐藏线
+.prev-next {
+  border-top: none !important;
+}
+
+// 目录页横条隐藏线
+.tk-catalogue__header {
+  border-bottom: none;
+}
+
+// 移动端nav导航栏下隐藏线
+.VPLocalNav {
+  border-bottom: none !important;
+}
+
+// nav导航栏深色模式切换两边隐藏线
+.menu + .appearance[data-v-df4b8734]::before,
+.translations + .appearance[data-v-df4b8734]::before {
+  background-color: #ffffff00;
+}
+
+.appearance + .social-links[data-v-df4b8734]::before {
+  background-color: #ffffff00;
+}
