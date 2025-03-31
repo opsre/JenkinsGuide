@@ -161,11 +161,7 @@ const tkConfig = defineTeekConfig({
       repo: 'opsre/JenkinsGuide', //仓库
       repoId: 'R_kgDON4RvxA', //仓库ID
       category: 'General', // 讨论分类
-      categoryId: 'DIC_kwDOGYFl1M4CayLN', //讨论分类ID
-      mapping: 'pathname',
-      inputPosition: 'bottom',
-      lang: 'zh-CN',
-
+      categoryId: 'DIC_kwDON4RvxM4CnUkh', //讨论分类ID
       // artalk 配置，官网：https://artalk.js.org/
       // server: "",
       // site: "",
