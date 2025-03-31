@@ -7,7 +7,7 @@
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-plugin-google-analytics": "^1.0.2",
     "vitepress-plugin-group-icons": "^1.3.8",
-    "vitepress-theme-teek": "1.0.0-alpha.3"
+    "vitepress-theme-teek": "1.0.0-alpha.4"
   },
   "scripts": {
     "dev": "vitepress dev docs",

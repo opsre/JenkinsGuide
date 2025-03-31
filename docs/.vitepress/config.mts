@@ -125,7 +125,8 @@ const tkConfig = defineTeekConfig({
       )
         return tip;
     },
-    showUpdateDate: true, // 是否展示更新日期，仅在文章页显示
+    showCreateDate: true, // 是否展示创建日期，仅在文章页显示
+    showUpdateDate: false, // 是否展示更新日期，仅在文章页显示
   },
 
   // friendLink: FriendLink, // 友链配置

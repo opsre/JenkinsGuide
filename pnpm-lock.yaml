@@ -34,8 +34,8 @@ importers:
         specifier: ^1.3.8
         version: 1.3.8
       vitepress-theme-teek:
-        specifier: 1.0.0-alpha.3
-        version: 1.0.0-alpha.3(element-plus@2.9.7(vue@3.5.13))(vite@5.4.15(sass@1.86.0))(vitepress@1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3))
+        specifier: 1.0.0-alpha.4
+        version: 1.0.0-alpha.4(element-plus@2.9.7(vue@3.5.13))(vitepress@1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3))
 
 packages:
 
@@ -1225,11 +1225,10 @@ packages:
     peerDependencies:
       vitepress: ^1.6.3
 
-  vitepress-theme-teek@1.0.0-alpha.3:
-    resolution: {integrity: sha512-NGbhOFDOxv477Gmez+Zf/uOQm96CrheH5FfqHJC/ZWKKwakC8uDTBsQ73UnO9+QKgxiaMr460D/+lo+g9K3Xvw==}
+  vitepress-theme-teek@1.0.0-alpha.4:
+    resolution: {integrity: sha512-xW+AqSDvdaj1GgLcnFVd2Ixx8Y71dfHm2+N2yEqvCe5Gd39jgq04pn0+bPCJCrQZRKRPVUXckIzK2HmfBOP4PQ==}
     peerDependencies:
       element-plus: ^2.9.3
-      vite: ^6.0.7
       vitepress: ^1.6.3
 
   vitepress@1.6.3:
@@ -2452,13 +2451,12 @@ snapshots:
       picocolors: 1.1.1
       vitepress: 1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)
 
-  vitepress-theme-teek@1.0.0-alpha.3(element-plus@2.9.7(vue@3.5.13))(vite@5.4.15(sass@1.86.0))(vitepress@1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)):
+  vitepress-theme-teek@1.0.0-alpha.4(element-plus@2.9.7(vue@3.5.13))(vitepress@1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)):
     dependencies:
       element-plus: 2.9.7(vue@3.5.13)
       gray-matter: 4.0.3
       js-yaml: 4.1.0
       markdown-it-container: 4.0.0
-      vite: 5.4.15(sass@1.86.0)
       vitepress: 1.6.3(@algolia/client-search@5.23.0)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)
       vitepress-plugin-auto-frontmatter: 1.0.7
       vitepress-plugin-catalogue: 1.0.9
