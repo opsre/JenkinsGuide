@@ -17,6 +17,7 @@ main:
             password: ${GIT_ACCESS_TOKEN}
             target_url: https://github.com/opsre/JenkinsGuide.git
             git_email: 'github-actions[bot]@users.noreply.github.com'
+
     - stageTwo:
       runner:
         cpus: 16
@@ -73,5 +74,5 @@ $:
         - docker
       stages:
         - name: 默认安装依赖
-          script:
-            - pnpm install
+          script: |
+            pnpm install
