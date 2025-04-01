@@ -33,7 +33,7 @@ main:
             node -v && npm -v && yarn -v && pnpm -v
         - name: install dependencies
           script: |
-            pnpm i
+            pnpm install
         - name: build project
           script: |
             pnpm build
