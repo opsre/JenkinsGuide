@@ -28,12 +28,50 @@ main:
         volumes:
           - /data/.cache:copy-on-write
       stages:
-        - name: print node version
+        - name: 🖨️ 打印环境
           script: |
             node -v && npm -v && yarn -v && pnpm -v
-        - name: install dependencies
+        - name: 📦️ 安装依赖
           script: |
             pnpm install
-        - name: build project
+        - name: ⚗️ 编译项目
           script: |
             pnpm build
+        - name: 🚚 发布制品
+          image: tencentcom/rsync
+          imports: https://cnb.cool/eryajf/build-env/-/blob/main/env.yaml
+          settings:
+            user: ${SSH_USER}
+            key: ${SSH_KEY}
+            port: 2023
+            hosts:
+              - prod.eryajf.net
+            source: docs/.vitepress/dist/
+            target: /data/www/JenkinsGuide/
+            delete: true
+            script: |
+              docker run --rm docker.cnb.cool/znb/images/lenye-pmsg \
+              workweixin bot -k ${WECOM_BOT} \
+              -m markdown "🎉 JenkinsGuide 又一次发布啦！\n发布时间: `date "+%Y-%m-%d %H:%M"`"
+
+        - name: 🧘‍♂️ 刷新缓存
+          imports: https://cnb.cool/eryajf/build-env/-/blob/main/env.yaml
+          script: |
+            docker login -u ${CNB_TOKEN_USER_NAME} -p "${CNB_TOKEN}" ${CNB_DOCKER_REGISTRY}
+            docker run --rm -e DOGE_AK=${DOGE_AK} -e DOGE_SK=${DOGE_SK} \
+            docker.cnb.cool/eryajf/eryactl \
+            eryactl doge flushcdnpath -p "https://jenkinsguide.opsre.top/"
+
+$:
+  vscode:
+    - docker:
+        image: docker.cnb.cool/znb/images/node:18
+      runner:
+        cpus: 8
+      services:
+        - vscode
+        - docker
+      stages:
+        - name: 默认安装依赖
+          script:
+            - pnpm install
