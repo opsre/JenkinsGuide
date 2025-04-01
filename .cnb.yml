@@ -29,11 +29,11 @@ main:
           - /data/.cache:copy-on-write
       stages:
         - name: print node version
-          scripts: |
+          script: |
             node -v && npm -v && yarn -v && pnpm -v
         - name: install dependencies
-          scripts: |
+          script: |
             pnpm i
         - name: build project
-          scripts: |
+          script: |
             pnpm build
