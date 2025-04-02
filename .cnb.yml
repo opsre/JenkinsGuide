@@ -30,8 +30,10 @@ main:
           - /data/.cache:copy-on-write
       stages:
         - name: 🖨️ 打印环境
+          imports: https://cnb.cool/eryajf/build-env/-/blob/main/env.yaml
           script: |
             node -v && npm -v && yarn -v && pnpm -v
+            env
         - name: 📦️ 安装依赖
           script: |
             pnpm install
