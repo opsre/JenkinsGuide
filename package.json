@@ -10,7 +10,7 @@
     "vitepress-theme-teek": "1.0.0-alpha.4"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
+    "dev": "vitepress dev docs --host 0.0.0.0",
     "build": "NODE_OPTIONS=--max-old-space-size=24576 vitepress build docs",
     "preview": "vitepress preview docs"
   },
