@@ -13,10 +13,10 @@
 <p align="center">
 <img align="left" height="110" src="./docs/public/logo.png">
 <ul>
-<li><strong>我的博客</strong>: https://wiki.eryajf.net</li>
-<li><strong>官方地址</strong>: https://www.jenkins.io</li>
-<li><strong>访问指南</strong>: https://jenkinsguide.opsre.top</li>
-<li><strong>欢迎沟通</strong>: https://github.com/opsre/JenkinsGuide/issues</li>
+  <li><strong>我的博客</strong>: <a href="https://wiki.eryajf.net" target="_blank">https://wiki.eryajf.net</a></li>
+  <li><strong>官方地址</strong>: <a href="https://www.jenkins.io" target="_blank">https://www.jenkins.io</a></li>
+  <li><strong>访问指南</strong>: <a href="https://jenkinsguide.opsre.top" target="_blank">https://jenkinsguide.opsre.top</a></li>
+  <li><strong>欢迎沟通</strong>: <a href="https://github.com/opsre/JenkinsGuide/issues" target="_blank">https://github.com/opsre/JenkinsGuide/issues</a></li>
 </ul>
 </p>
 
