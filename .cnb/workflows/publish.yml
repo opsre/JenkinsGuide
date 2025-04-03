@@ -12,6 +12,15 @@ main:
         volumes:
           - /data/.cache:copy-on-write
       stages:
+        - name: set env
+          script: echo -n $(date "+%Y-%m-%d %H:%M")
+          exports:
+            code: CUSTOM_ENV_DATE_CODE
+            info: CUSTOM_ENV_DATE_INFO
+        - name: echo env
+          script:
+            - echo $CUSTOM_ENV_DATE_CODE
+            - echo $CUSTOM_ENV_DATE_INFO
         - name: 🖨️ 打印环境
           script: |
             node -v && npm -v && yarn -v && pnpm -v
