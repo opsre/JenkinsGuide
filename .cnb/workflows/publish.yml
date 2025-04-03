@@ -35,7 +35,7 @@ main:
         - name: 🔔 发布通知
           image: tencentcom/wecom-message
           settings:
-            robot: ${WECOM_ROBOT}
+            robot: ${WECOM_BOT}
             msgType: markdown
             content: |
               > **🎉 JenkinsGuide 又一次发布啦！**
@@ -44,7 +44,6 @@ main:
               > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)
 
         - name: 🧘‍♂️ 刷新缓存
-          imports: https://cnb.cool/eryajf/build-env/-/blob/main/env.yaml
           script: |
             docker run --rm -e DOGE_AK=${DOGE_AK} -e DOGE_SK=${DOGE_SK} \
             docker.cnb.cool/eryajf/eryactl \
