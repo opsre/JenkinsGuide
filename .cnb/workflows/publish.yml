@@ -15,12 +15,7 @@ main:
         - name: set env
           script: echo -n $(date "+%Y-%m-%d %H:%M")
           exports:
-            code: CUSTOM_ENV_DATE_CODE
             info: CUSTOM_ENV_DATE_INFO
-        - name: echo env
-          script:
-            - echo $CUSTOM_ENV_DATE_CODE
-            - echo $CUSTOM_ENV_DATE_INFO
         - name: 🖨️ 打印环境
           script: |
             node -v && npm -v && yarn -v && pnpm -v
@@ -48,7 +43,7 @@ main:
             msgType: markdown
             content: |
               > **🎉 JenkinsGuide 又一次发布啦！**
-              > **构建时间:** $CNB_BUILD_START_TIME
+              > **构建时间:** $CUSTOM_ENV_DATE_INFO
               > **提交信息:** $CNB_COMMIT_MESSAGE_TITLE
               > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)
 
