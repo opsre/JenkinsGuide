@@ -1,7 +1,6 @@
 main:
   push:
-    -
-      runner:
+    - runner:
         cpus: 8
       services:
         - docker
