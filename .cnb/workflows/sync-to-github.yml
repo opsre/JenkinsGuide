@@ -1,6 +1,6 @@
 main:
   push:
-    - stageOne:
+    -
       runner:
         cpus: 8
       services:
