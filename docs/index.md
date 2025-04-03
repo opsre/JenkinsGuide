@@ -31,7 +31,7 @@ features:
     details: 学完之后，看山还是山，进入返璞归真之境
 ---
 
----
+![](https://t.eryajf.net/imgs/2025/04/1743645166845.webp)
 
 <style>
 /* :root {

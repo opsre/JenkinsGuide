@@ -53,6 +53,7 @@ main:
             target: /data/www/JenkinsGuide/
             delete: true
             script: |
+              hostname
               docker run --rm docker.cnb.cool/znb/images/lenye-pmsg \
               workweixin bot -k ${WECOM_BOT} \
               -m markdown "🎉 JenkinsGuide 又一次发布啦！\n发布时间: `date "+%Y-%m-%d %H:%M"`"
