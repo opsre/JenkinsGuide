@@ -18,10 +18,11 @@ const description = ["Jenkins全知全解"].toString();
 
 const tkConfig = defineTeekConfig({
   author: { name: "eryajf", link: "https://github.com/eryajf" },
-  tkTheme: true, // 是否使用tk主题
   anchorScroll: true, // 是否启用锚点滚动
   viewTransition: true, // 是否启用页面切换动画
   codeBlock: true, // 是否启用代码块动画
+  teekHome:false,
+  vpHome: true,
   themeSetting: {
     useThemeStyle: true, // 是否启用主题风格，如果为 false，则不会显示切换按钮
     themeStyle: "vp-default", // 设置当前主题风格
