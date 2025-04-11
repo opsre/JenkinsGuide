@@ -29,6 +29,12 @@ const tkConfig = defineTeekConfig({
     useThemeSize: true, // 是否使用主题尺寸切换功能
     themeSize: "default", // 设置当前主题尺寸
   }, // 右下角的主题设置配置
+  siteAnalytics: {
+    provider: "baidu",
+    options: {
+      id: "457b1f311c48412b87b946117f8314fc",
+    },
+  },
   bgColor: [
     "#e74c3c",
     "#409EFF",
