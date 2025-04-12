@@ -48,7 +48,10 @@ main:
               > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)
 
         - name: 🧘‍♂️ 刷新缓存
-          script: |
-            docker run --rm -e DOGE_AK=${DOGE_AK} -e DOGE_SK=${DOGE_SK} \
-            docker.cnb.cool/eryajf/eryactl \
-            eryactl doge flushcdnpath -p "https://jenkinsguide.opsre.top/"
+          image: docker.cnb.cool/znb/doge-cdn-refresh/dcr
+          settings:
+            ak: "${DOGE_AK}"
+            sk: "${DOGE_SK}"
+            rtype: "path"
+            urls:
+              - "https://jenkinsguide.opsre.top/"
