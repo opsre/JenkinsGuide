@@ -1,7 +1,0 @@
-// 新语法 (推荐)
-@use "./var.scss" as *; ///自定义变量
-@use "./hidden.scss" as *; //隐藏横条
-@use "./vp-code.scss" as *; //代码块
-// @use "./vp-code-group.scss" as *; //代码组
-@use "./vp-code-title.scss" as *; //代码块标题
-@use "./font.scss" as *; // 字体
