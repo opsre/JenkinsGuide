@@ -26,6 +26,10 @@ const teekConfig = defineTeekConfig({
       createYear: 2025,
       suffix: "Eryajf",
     },
+    icpRecord: {
+      name: "浙ICP备18057030号-3",
+      link: "http://beian.miit.gov.cn/",
+    },
   },
   codeBlock: {
     copiedDone: TkMessage => TkMessage.success("复制成功！"),
