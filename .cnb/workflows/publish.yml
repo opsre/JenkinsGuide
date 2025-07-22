@@ -18,7 +18,6 @@ main:
             info: CUSTOM_ENV_DATE_INFO
         - name: 🖨️ 打印环境
           script: |
-            source /etc/profile
             node -v && npm -v && yarn -v && pnpm -v
         - name: 📦️ 安装依赖
           script: |
