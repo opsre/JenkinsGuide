@@ -31,8 +31,11 @@ features:
     details: 学完之后，看山还是山，进入返璞归真之境
 ---
 
-![](/ghimgs/other/mindmap.webp)
+<br>
+<br>
+<Search />
 
+![](/ghimgs/other/mindmap.webp)
 
 
 <style>
