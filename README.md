@@ -14,7 +14,6 @@
 <img src="https://cnb.cool/66666/resource/-/git/raw/main/img/hengtiao.gif" width="100%"  height="3">
 </div>
 
-
 这里汇聚着我的聪明才智，展示着我的奇技巧思，君可安看。
 
 指南大纲正在路上，欢迎各界能人异士贡献你与Jenkins相关的私密笔记。
