@@ -2,4 +2,4 @@ include:
 - .cnb/workflows/sync-to-github.yml
 - .cnb/workflows/publish.yml
 - .cnb/workflows/vscode.yml
-- .cnb/workflows/knowledge.yml
+- https://cnb.cool/znb/build-template/-/blob/main/template/knowledge.yml

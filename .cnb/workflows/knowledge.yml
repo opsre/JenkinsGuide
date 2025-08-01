@@ -1,7 +1,0 @@
-main:
-  push:
-    - stages:
-        - name: build knowledge base
-          image: cnbcool/knowledge-base
-          settings:
-            include: "**/**.md"
