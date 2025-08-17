@@ -48,6 +48,21 @@ const teekConfig = defineTeekConfig({
       categoryId: 'DIC_kwDON4RvxM4CnUkh', //讨论分类ID
     },
   },
+
+  // 布蒜子统计分析
+  docAnalysis: {
+    createTime: "2025-02-26",
+    statistics: {
+      provider: "busuanzi",
+      url: "https://bszi.eryajf.net/jsonp?callback=BusuanziCallback",
+      tryRequest: true,
+      tryCount: 5,
+      tryIterationTime: 2000,
+    },
+    wordCount: true,
+    readingTime: true,
+  },
+
   vitePlugins: {
     sidebarOption: {
       initItems: false,
