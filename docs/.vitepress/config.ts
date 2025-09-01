@@ -58,9 +58,30 @@ const teekConfig = defineTeekConfig({
       tryRequest: true,
       tryCount: 5,
       tryIterationTime: 2000,
+      siteView: true, // 是否开启首页的访问量和排名统计
+      pageView: true, // 是否开启文章页的浏览量统计
+      permalink: false, // 是否只统计永久链接的浏览量，如果为 false，则统计 VitePress 默认的文档目录链接
     },
     wordCount: true,
     readingTime: true,
+    // // 自定义现有信息
+    // overrideInfo: [
+    //   {
+    //     key: "lastActiveTime",
+    //     label: "活跃时间",
+    //     value: (_, currentValue) => (currentValue + "").replace("前", ""),
+    //     show: true,
+    //   },
+    // ],
+    // 自定义额外信息
+    // appendInfo: [
+    //   { 
+    //     key: "todayVisitCount", 
+    //     label: "今日访问人数", 
+    //     value: "获取中...",
+    //     show: true
+    //   },
+    // ],
   },
 
   vitePlugins: {
@@ -126,6 +147,30 @@ export default defineConfig({
       {},
       `typeof LA !== 'undefined' && LA.init({ id: "3LqfP8Icg0GeEvtn", ck: "3LqfP8Icg0GeEvtn", hashMode: true })`,
     ], // 51.la
+    [
+      "script",
+      {},
+      `
+        // 重写布蒜子回调函数以获取今日访问人数
+        window.BusuanziCallback = window.BusuanziCallback || function() {};
+        const originalCallback = window.BusuanziCallback;
+        window.BusuanziCallback = function(data) {
+          if (data && data.today && data.today.SiteUv !== undefined) {
+            // 更新今日访问人数显示
+            setTimeout(() => {
+              const todayVisitElements = document.querySelectorAll('[data-key="todayVisitCount"] .value');
+              todayVisitElements.forEach(el => {
+                if (el) el.textContent = data.today.SiteUv + ' 人';
+              });
+            }, 100);
+          }
+          // 调用原始回调函数
+          if (typeof originalCallback === 'function') {
+            originalCallback.apply(this, arguments);
+          }
+        };
+      `,
+    ],
   ],
   markdown: {
     // 开启行号
