@@ -13,7 +13,7 @@ main:
           - /root/.npm:copy-on-write
       stages:
         - name: set env
-          script: echo -n $(date "+%Y-%m-%d %H:%M")
+          script: echo -n $(date "+%Y-%m-%d %H:%M:%s")
           exports:
             info: CUSTOM_ENV_DATE_INFO
         - name: 🖨️ 打印环境
