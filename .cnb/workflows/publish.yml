@@ -11,6 +11,7 @@ main:
         image: docker.cnb.cool/znb/images/node:18
         volumes:
           - /root/.npm:copy-on-write
+          - /root/.pnpm:copy-on-write
       stages:
         - name: set env
           script: echo -n $(date "+%Y-%m-%d %H:%M:%s")
