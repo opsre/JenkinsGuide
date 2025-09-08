@@ -19,7 +19,6 @@ main:
         - name: 🖨️ 打印环境
           script: |
             node -v && npm -v && yarn -v && pnpm -v
-            ls
         - name: 📦️ 安装依赖
           script: |
             pnpm install
