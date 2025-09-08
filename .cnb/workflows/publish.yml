@@ -14,7 +14,7 @@ main:
           - /root/.pnpm:copy-on-write
       stages:
         - name: set env
-          script: echo -n $(date "+%Y-%m-%d %H:%M:%s")
+          script: echo -n $(date "+%Y-%m-%d %H:%M:%S")
           exports:
             info: CUSTOM_ENV_DATE_INFO
         - name: 🖨️ 打印环境
