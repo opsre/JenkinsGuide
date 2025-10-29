@@ -38,15 +38,24 @@ main:
             target: /data/www/JenkinsGuide/
             delete: true
         - name: 🔔 发布通知
-          image: tencentcom/wecom-message
+          image: tencentcom/dingtalk-bot-msg
           settings:
-            robot: ${WECOM_BOT}
-            msgType: markdown
+            c_type: "markdown" # 支持: text, markdown, link, actionCard, multiActionCard, feedCard
+            secret: $DING_BOT_SECRET
+            webhook: $DING_BOT_WEBHOOK
+            isAtAll: true
+            debug: false # 新增: 是否启用调试模式
             content: |
               > **🎉 JenkinsGuide 又一次发布啦！**
+              >
               > **构建时间:** $CUSTOM_ENV_DATE_INFO
-              > **提交信息:** $CNB_COMMIT_MESSAGE_TITLE
-              > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)
+              > **仓库地址:** [$CNB_REPO_SLUG]($CNB_REPO_URL_HTTPS)
+              > **构建用户:** $CNB_BUILD_USER
+              > **提交用户:** $CNB_COMMITTER
+              > **提交标题:** $CNB_COMMIT_MESSAGE_TITLE
+              > **提交详情:** [${CNB_COMMIT_SHORT}](${CNB_EVENT_URL})
+              > **构建日志:** [查看日志]($CNB_BUILD_WEB_URL)
+        
         - name: 🧘‍♂️ 刷新缓存
           image: docker.cnb.cool/znb/cdn-refresh
           settings:
