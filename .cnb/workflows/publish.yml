@@ -49,11 +49,17 @@ main:
               > **🎉 JenkinsGuide 又一次发布啦！**
               >
               > **构建时间:** $CUSTOM_ENV_DATE_INFO
+              >
               > **仓库地址:** [$CNB_REPO_SLUG]($CNB_REPO_URL_HTTPS)
+              >
               > **构建用户:** $CNB_BUILD_USER
+              >
               > **提交用户:** $CNB_COMMITTER
+              >
               > **提交标题:** $CNB_COMMIT_MESSAGE_TITLE
+              >
               > **提交详情:** [${CNB_COMMIT_SHORT}](${CNB_EVENT_URL})
+              >
               > **构建日志:** [查看日志]($CNB_BUILD_WEB_URL)
         
         - name: 🧘‍♂️ 刷新缓存
